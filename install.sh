@@ -1,11 +1,11 @@
-#!/bin/sh
+u#!/bin/sh
 # Bootstrap Neovim + your LazyVim config under a custom NVIM_APPNAME.
 # Usage: curl -fsSL https://nvim.yourdomain.com | sh
 #        curl -fsSL https://nvim.yourdomain.com | NVIM_APPNAME=work sh
 set -eu
 
 APP="${NVIM_APPNAME:-lazyvim}"
-REPO="${NVIM_REPO:-https://github.com/YOURUSER/nvim-config.git}" # <- change this
+REPO="${NVIM_REPO:-https://github.com/euick0/nvim-config.git}" # <- change this
 CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/$APP"
 BIN="$HOME/.local/bin"
 export PATH="$BIN:$PATH"
