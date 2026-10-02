@@ -39,14 +39,18 @@ local function run_python()
     t:show()
   end
 
+  local job = vim.b[t.buf].terminal_job_id
   local send = function()
-    vim.fn.chansend(vim.b[t.buf].terminal_job_id, "python3 " .. file .. "\n")
+    vim.fn.chansend(job, "clear; python3 " .. file .. "\n")
   end
   -- A brand-new shell needs a moment to start before it can receive input
   if created then
     vim.defer_fn(send, 200)
   else
-    send()
+    -- Ctrl-C to kill whatever is running / discard any half-typed line,
+    -- then give the shell a moment to redraw its prompt
+    vim.fn.chansend(job, "\x03")
+    vim.defer_fn(send, 100)
   end
 end
 
