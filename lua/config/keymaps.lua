@@ -4,3 +4,4 @@
 local map = vim.keymap.set
 map({ "n", "x" }, "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
 map({ "n", "x" }, "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+map("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
