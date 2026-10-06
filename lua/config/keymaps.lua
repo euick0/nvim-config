@@ -53,7 +53,6 @@ local function run_python()
     vim.defer_fn(send, 100)
   end
 end
-
 vim.keymap.set("n", "<leader>ft", toggle_term, { desc = "Terminal (Root Dir)" })
 vim.keymap.set({ "n", "t" }, "<C-/>", toggle_term, { desc = "Toggle Terminal" })
 vim.keymap.set({ "n", "t" }, "<C-_>", toggle_term, { desc = "which_key_ignore" })
